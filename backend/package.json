@@ -1,0 +1,22 @@
+{
+  "name": "user-management-backend",
+  "version": "1.0.0",
+  "description": "Backend for user management page",
+  "main": "src/index.ts",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc && node dist/app.js",
+    "test": "echo \"Hola\" && exit 1",
+    "dev": "nodemon -r ts-node/register src/index.ts"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
