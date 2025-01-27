@@ -1,0 +1,30 @@
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports: 
+      - "3002:3002"
+    networks:
+      - app_network
+  db:
+    image: postgres:16.6-alpine3.20
+    environment:
+      POSTGRES_USER: mperezguendulain
+      POSTGRES_PASSWORD: okta_12345
+      POSTGRES_DB: user_management
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./backend/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  db_data:
