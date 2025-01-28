@@ -42,7 +42,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwMThlZDA3LTZjZWItNGM5Ni04ZTVmLWIxNzFlODhkMjljMSIsImlhdCI6MTczODA0NTU1MywiZXhwIjoxNzM4MDQ5MTUzfQ.UnKpP-vuf7EDvT427FST5oFkNJd44M47K6MuDX_Sd4U",
+						"value": "Bearer <token>",
 						"type": "text"
 					}
 				],
@@ -85,13 +85,13 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwMThlZDA3LTZjZWItNGM5Ni04ZTVmLWIxNzFlODhkMjljMSIsImlhdCI6MTczODA0MTg0NCwiZXhwIjoxNzM4MDQ1NDQ0fQ.WrJvRXl5jHdmJ36Y7vY5aSwbczfJckKRyd-tjUtYuZk",
+						"value": "Bearer <token>",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"firstName\": \"Jhon\",\n    \"lastName\": \"Snow\",\n    \"email\": \"jhon.snow3@example.com\",\n    \"password\": \"temp123\",\n    \"phoneNumber\": \"+529531546147\",\n    \"role\": \"admin\",\n    \"status\": \"active\",\n    \"address\": {\n        \"street\": \"Victoria\",\n        \"number\": \"18A\",\n        \"city\": \"Huajuapan de León\",\n        \"postalCode\": 69000\n    },\n    \"profilePictureURL\": \"https://example.com/profiles/charlie.jpg\"\n}",
+					"raw": "{\n    \"firstName\": \"Jhon\",\n    \"lastName\": \"Snow\",\n    \"email\": \"jhon.snow@example.com\",\n    \"password\": \"temp123\",\n    \"phoneNumber\": \"+529531546147\",\n    \"role\": \"admin\",\n    \"status\": \"active\",\n    \"address\": {\n        \"street\": \"Victoria\",\n        \"number\": \"18A\",\n        \"city\": \"Huajuapan de León\",\n        \"postalCode\": 69000\n    },\n    \"profilePictureURL\": \"https://example.com/profiles/charlie.jpg\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -119,7 +119,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwMThlZDA3LTZjZWItNGM5Ni04ZTVmLWIxNzFlODhkMjljMSIsImlhdCI6MTczODA0NTU1MywiZXhwIjoxNzM4MDQ5MTUzfQ.UnKpP-vuf7EDvT427FST5oFkNJd44M47K6MuDX_Sd4U",
+						"value": "Bearer <token>",
 						"type": "text"
 					}
 				],
@@ -133,7 +133,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3001/api/users/baef4183-5bb3-4d88-8847-761188d0909c",
+					"raw": "localhost:3001/api/users/7ee9e22b-425f-4e79-9623-6a47a1fc0a4d",
 					"host": [
 						"localhost"
 					],
@@ -141,7 +141,7 @@
 					"path": [
 						"api",
 						"users",
-						"baef4183-5bb3-4d88-8847-761188d0909c"
+						"7ee9e22b-425f-4e79-9623-6a47a1fc0a4d"
 					]
 				}
 			},
@@ -154,12 +154,12 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwMThlZDA3LTZjZWItNGM5Ni04ZTVmLWIxNzFlODhkMjljMSIsImlhdCI6MTczODA0NTU1MywiZXhwIjoxNzM4MDQ5MTUzfQ.UnKpP-vuf7EDvT427FST5oFkNJd44M47K6MuDX_Sd4U",
+						"value": "Bearer <token>",
 						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "localhost:3001/api/users/baef4183-5bb3-4d88-8847-761188d0909c",
+					"raw": "localhost:3001/api/users/7ee9e22b-425f-4e79-9623-6a47a1fc0a4d",
 					"host": [
 						"localhost"
 					],
@@ -167,7 +167,7 @@
 					"path": [
 						"api",
 						"users",
-						"baef4183-5bb3-4d88-8847-761188d0909c"
+						"7ee9e22b-425f-4e79-9623-6a47a1fc0a4d"
 					]
 				}
 			},
