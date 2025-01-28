@@ -4,7 +4,7 @@ export const findUserByEmail = `
 `;
 
 export const insertUser = `
-  INSERT INTO users (firstName, lastName, email, phoneNumber, role, status, address, profilePictureURL)
+  INSERT INTO users ("firstName", "lastName", "email", "phoneNumber", "role", "status", "address", "profilePictureURL")
   VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
   RETURNING *;
 `;

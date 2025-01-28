@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 import { pool } from '../config/db';
 
@@ -18,7 +18,7 @@ export const loginService = async (email: string, password: string): Promise<str
   const { rows } = await pool.query<UserComplete>(GET_USER_BY_EMAIL, [email]);
   const user = rows[0];
 
-  const isTheSamePassword = await bcrypt.compare(password, user.password);
+  const isTheSamePassword = await bcrypt.compare(password, user?.password);
   if (!isTheSamePassword) {
     throw new Error('Invalid credentials');
   }
