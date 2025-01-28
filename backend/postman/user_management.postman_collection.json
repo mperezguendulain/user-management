@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "c73a8715-897b-445a-9434-70c9e1259aef",
+		"name": "User Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10061929"
+	},
+	"item": [
+		{
+			"name": "Login User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"admin@example.com\",\n    \"password\": \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/auth/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Users",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwMThlZDA3LTZjZWItNGM5Ni04ZTVmLWIxNzFlODhkMjljMSIsImlhdCI6MTczODA0NTU1MywiZXhwIjoxNzM4MDQ5MTUzfQ.UnKpP-vuf7EDvT427FST5oFkNJd44M47K6MuDX_Sd4U",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3001/api/users?page=1&limit=5&status=active&search=per",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "5"
+						},
+						{
+							"key": "status",
+							"value": "active"
+						},
+						{
+							"key": "search",
+							"value": "per"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwMThlZDA3LTZjZWItNGM5Ni04ZTVmLWIxNzFlODhkMjljMSIsImlhdCI6MTczODA0MTg0NCwiZXhwIjoxNzM4MDQ1NDQ0fQ.WrJvRXl5jHdmJ36Y7vY5aSwbczfJckKRyd-tjUtYuZk",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Jhon\",\n    \"lastName\": \"Snow\",\n    \"email\": \"jhon.snow3@example.com\",\n    \"password\": \"temp123\",\n    \"phoneNumber\": \"+529531546147\",\n    \"role\": \"admin\",\n    \"status\": \"active\",\n    \"address\": {\n        \"street\": \"Victoria\",\n        \"number\": \"18A\",\n        \"city\": \"Huajuapan de León\",\n        \"postalCode\": 69000\n    },\n    \"profilePictureURL\": \"https://example.com/profiles/charlie.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwMThlZDA3LTZjZWItNGM5Ni04ZTVmLWIxNzFlODhkMjljMSIsImlhdCI6MTczODA0NTU1MywiZXhwIjoxNzM4MDQ5MTUzfQ.UnKpP-vuf7EDvT427FST5oFkNJd44M47K6MuDX_Sd4U",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\": \"Leonardo\",\n    \"lastName\": \"Fabio\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/api/users/baef4183-5bb3-4d88-8847-761188d0909c",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users",
+						"baef4183-5bb3-4d88-8847-761188d0909c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwMThlZDA3LTZjZWItNGM5Ni04ZTVmLWIxNzFlODhkMjljMSIsImlhdCI6MTczODA0NTU1MywiZXhwIjoxNzM4MDQ5MTUzfQ.UnKpP-vuf7EDvT427FST5oFkNJd44M47K6MuDX_Sd4U",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3001/api/users/baef4183-5bb3-4d88-8847-761188d0909c",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"users",
+						"baef4183-5bb3-4d88-8847-761188d0909c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
