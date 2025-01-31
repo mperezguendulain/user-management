@@ -1,11 +1,11 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from "express";
 import * as authService from "../services/authService";
 
 // Utils
-import { getError } from '../utils/errorUtil';
+import { getError } from "../utils/errorUtil";
 
 // Validators
-import { LoginSchema } from '../utils/validators/authValidator';
+import { LoginSchema } from "../utils/validators/authValidator";
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -13,7 +13,10 @@ export const login = async (req: Request, res: Response): Promise<void> => {
 
     const validatedData = LoginSchema.parse({ email, password });
 
-    const token = await authService.loginService(validatedData.email, validatedData.password);
+    const token = await authService.loginService(
+      validatedData.email,
+      validatedData.password
+    );
 
     res.json({ success: true, token });
   } catch (err) {

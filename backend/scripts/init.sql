@@ -21,7 +21,7 @@ CREATE TABLE users (
 
 INSERT INTO users ("firstName", "lastName", "email", "password", "phoneNumber", "role", "status", "address", "profilePictureURL")
 VALUES
-  ('Martín', 'Pérez', 'admin@example.com', crypt('password', gen_salt('bf')), '+1122334455', 'user', 'active', '{"street": "Third St", "number": "789", "city": "Chicago", "postalCode": 60601}', 'https://example.com/alice-profile.jpg'),
+  ('Martín', 'Pérez', 'admin@example.com', crypt('password', gen_salt('bf')), '+1122334455', 'user', 'active', '{"street": "Third St", "number": "789", "city": "Chicago", "postalCode": 60601}', 'https://media.licdn.com/dms/image/v2/D5603AQHFWO5kry8ZBg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1673652312252?e=2147483647&v=beta&t=xcmr85p85iC4XEEaL6CSJ8jV8PAUzio270zShHCYl7U'),
   ('John', 'Doe', 'john.doe@example.com', 'abc123', '+1234567890', 'user', 'active', '{"street": "Main St", "number": "123", "city": "New York", "postalCode": 10001}', 'https://example.com/profiles/john.jpg'),
   ('Jane', 'Smith', 'jane.smith@example.com', 'abc123', '+0987654321', 'admin', 'inactive', '{"street": "Second St", "number": "456", "city": "Los Angeles", "postalCode": 90001}', 'https://example.com/profiles/jane.jpg'),
   ('Bob', 'Brown', 'bob.brown@example.com', 'abc123', '+2233445566', 'user', 'active', '{"street": "Fourth St", "number": "101", "city": "Houston", "postalCode": 77001}', 'https://example.com/profiles/bob.jpg'),

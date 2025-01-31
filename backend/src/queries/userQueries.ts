@@ -9,6 +9,12 @@ export const GET_USERS = `
   LIMIT $1 OFFSET $2;
 `;
 
+export const GET_USER_BY_ID = `
+  SELECT "id", "firstName", "lastName", "email", "phoneNumber", "role", "status", "address", "profilePictureURL"
+  FROM users
+  WHERE "id"  = $1
+`;
+
 export const GET_USER_BY_EMAIL = `
   SELECT "id", "firstName", "lastName", "email", password, "phoneNumber", "role", "status", "address", "profilePictureURL" FROM users
   WHERE "email" = $1;
@@ -22,12 +28,15 @@ export const ADD_USER = `
 `;
 
 export const getUpdateUserSQL = (columnsToUpdate: string[]) => {
-  const queryStart = 'UPDATE users SET '
-  const queryEnd = 'WHERE "id" = $1 RETURNING "id", "firstName", "lastName", "email", "phoneNumber", "role", "status", "address", "profilePictureURL";'
+  const queryStart = "UPDATE users SET ";
+  const queryEnd =
+    'WHERE "id" = $1 RETURNING "id", "firstName", "lastName", "email", "phoneNumber", "role", "status", "address", "profilePictureURL";';
 
-  const queryMiddle = columnsToUpdate.map((columnName, index) => `"${columnName}" = $${index + 2}`)
+  const queryMiddle = columnsToUpdate.map(
+    (columnName, index) => `"${columnName}" = $${index + 2}`
+  );
 
-  const sqlStatement = `${queryStart}${queryMiddle.join(', ')} ${queryEnd}`;
+  const sqlStatement = `${queryStart}${queryMiddle.join(", ")} ${queryEnd}`;
   return sqlStatement;
 };
 

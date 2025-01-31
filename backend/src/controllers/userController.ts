@@ -1,4 +1,5 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from "express";
+import jwt from "jsonwebtoken";
 
 // Services
 import {
@@ -6,18 +7,32 @@ import {
   updateUserService,
   deleteUserService,
   addUserService,
-} from '../services/userService';
+  getUserService
+} from "../services/userService";
 
 // Utils
-import { getError } from '../utils/errorUtil';
+import { getError } from "../utils/errorUtil";
 
 // Validators
-import { AddUserSchema, GetUsersSchema, UpdateUserSchema } from '../utils/validators/userValidator';
+import {
+  AddUserSchema,
+  GetUsersSchema,
+  UpdateUserSchema
+} from "../utils/validators/userValidator";
 
 // Types
-import { User, UserAddFormData, UserDefault, UserPropsToUpdate, UserRole, UserStatus } from '../types/UserType';
+import type {
+  User,
+  UserAddFormData,
+  UserPropsToUpdate,
+  UserRole,
+  UserStatus
+} from "../types/UserType";
 
-export const getUsersController = async (req: Request, res: Response): Promise<void> => {
+export const getUsersController = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const { page, limit, role, status, search } = req.query;
 
@@ -44,7 +59,26 @@ export const getUsersController = async (req: Request, res: Response): Promise<v
   }
 };
 
-export const addUserController = async (req: Request, res: Response): Promise<void> => {
+export const getAuthenticatedUser = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  try {
+    const token = req.header("Authorization")?.replace("Bearer ", "") as string;
+
+    const { id } = jwt.decode(token) as { id: string };
+
+    const user = await getUserService(id);
+    res.json({ success: true, data: user });
+  } catch (err) {
+    res.status(400).json(getError(err));
+  }
+};
+
+export const addUserController = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const newUserData: UserAddFormData = req.body;
 
@@ -57,8 +91,10 @@ export const addUserController = async (req: Request, res: Response): Promise<vo
   }
 };
 
-
-export const updateUserController = async (req: Request, res: Response): Promise<void> => {
+export const updateUserController = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const { id } = req.params;
     const user: UserPropsToUpdate = req.body;
@@ -66,7 +102,7 @@ export const updateUserController = async (req: Request, res: Response): Promise
     const validatedData = UpdateUserSchema.parse(user);
 
     if (Object.keys(validatedData).length === 0) {
-      throw new Error('Please update at least one property');
+      throw new Error("Please update at least one property");
     }
 
     const updatedUser = await updateUserService(String(id), validatedData);
@@ -76,7 +112,10 @@ export const updateUserController = async (req: Request, res: Response): Promise
   }
 };
 
-export const deleteUserController = async (req: Request, res: Response): Promise<void> => {
+export const deleteUserController = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const { id } = req.params;
     const deletedUser = await deleteUserService(String(id));

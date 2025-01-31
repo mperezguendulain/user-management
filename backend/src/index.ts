@@ -1,23 +1,25 @@
 import express from "express";
-import dotenv from 'dotenv';
 import cors from "cors";
 
-import authRoutes  from './routes/authRoutes';
-import userRoutes  from './routes/userRoutes';
+import authRoutes from "./routes/authRoutes";
+import userRoutes from "./routes/userRoutes";
 
-// Read environment variables
-dotenv.config();
-
-const app = express()
+const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(cors());
+const corsOptions = {
+  origin: "http://localhost:3000",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+};
+
+// Middlewares
+app.use(cors(corsOptions));
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api', userRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api", userRoutes);
 
 // Start listen
 app.listen(PORT, () => {
