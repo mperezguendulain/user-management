@@ -20,6 +20,8 @@ To get started, ensure you have Docker installed. Then, simply run the following
 docker-compose up -d
 ```
 This will spin up the backend, frontend, and database services, all configured and ready to use.
+- You can test the backend at: http://localhost:3001
+- You can access the frontend at: http://localhost:3000
 
 ## 📡 Testing the API with Postman
 
